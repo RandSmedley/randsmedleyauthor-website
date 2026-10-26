@@ -76,9 +76,26 @@ p { margin: 0 0 1.1em; }
 }
 .masthead img {
   width: 100%;
-  aspect-ratio: 2820 / 1000;
+  aspect-ratio: 1200 / 600;
+  max-height: 80vh;
   object-fit: cover;
+  object-position: center 45%;
 }
+.masthead-title {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 5rem 1rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(to bottom, transparent, rgba(12, 26, 41, 0.92));
+}
+.masthead-title .name {
+  font-size: clamp(1.9rem, 6.5vw, 4.4rem);
+  letter-spacing: 0.22em;
+  margin: 0 0 .15em;
+  padding-left: 0.22em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+}
+.masthead-title .series { margin: 0; font-size: clamp(.95rem, 2vw, 1.2rem); letter-spacing: .12em; }
 .masthead h1.visually-hidden,
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
@@ -116,10 +133,10 @@ p { margin: 0 0 1.1em; }
 /* Interior pages: a slim lettered header instead of the full masthead */
 .page-head {
   text-align: center;
-  padding: 2.25rem 1rem 1.5rem;
+  padding: 3.5rem 1rem 2rem;
   background:
     linear-gradient(to bottom, rgba(12,26,41,.35), var(--sky-deep)),
-    url("img/masthead.jpg") center 60% / cover no-repeat;
+    url("img/vanguard.jpg") center 45% / cover no-repeat;
 }
 .page-head .brand {
   font-family: var(--display);
@@ -282,6 +299,8 @@ main { display: block; }
   .story { grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; }
   .about { grid-template-columns: 1fr; }
   .about .portrait-placeholder, .about img { max-width: 14rem; }
+  .masthead img { aspect-ratio: 16 / 10; }
+  .masthead-title { position: static; padding: .75rem 1rem 1.25rem; background: none; }
   .nav ul { gap: 0 1.1rem; }
   .nav a { font-size: 1rem; padding: .65rem 0; }
 }
