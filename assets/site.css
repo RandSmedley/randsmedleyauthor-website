@@ -172,39 +172,39 @@ p { margin: 0 0 1.1em; }
 
 .hero {
   position: relative;
-  display: flex;
-  align-items: center;
-  min-height: min(78vh, 46rem);
-  overflow: hidden;
   background: var(--sky-deep);
 }
 .hero-bg {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  display: block;
+  width: 100%;
+  height: clamp(20rem, 60vh, 44rem);
   object-fit: cover;
-  object-position: 70% center;
+  object-position: 70% 32%;
 }
 .hero::before {
   content: "";
-  position: absolute; inset: 0; z-index: 1;
-  background:
-    linear-gradient(90deg, rgba(12,26,41,.94) 0%, rgba(12,26,41,.86) 28%, rgba(12,26,41,.45) 50%, rgba(12,26,41,0) 64%),
-    linear-gradient(to top, var(--sky-deep) 0%, rgba(12,26,41,0) 22%);
+  position: absolute; left: 0; right: 0; top: 0;
+  height: clamp(20rem, 60vh, 44rem);
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--sky-deep) 0%, rgba(12,26,41,.55) 22%, rgba(12,26,41,0) 48%);
 }
 .hero-inner {
   position: relative; z-index: 2;
   display: grid;
-  grid-template-columns: 13.5rem minmax(0, 25rem);
-  gap: 2.25rem;
-  align-items: center;
-  padding: 3rem clamp(1.25rem, 5vw, 5rem);
+  grid-template-columns: 15.5rem minmax(0, 34rem);
+  gap: 2.5rem;
+  align-items: end;
+  margin-top: -14rem;
+  padding: 0 clamp(1.25rem, 5vw, 5rem) 2.5rem;
 }
 .hero-cover {
   border-radius: 3px;
-  box-shadow: 0 30px 60px -18px rgba(0,0,0,.85), 0 0 0 1px rgba(238,227,206,.1);
+  box-shadow: 0 30px 60px -18px rgba(0,0,0,.85), 0 0 0 1px rgba(238,227,206,.12);
 }
-.hero-title { font-size: clamp(2.2rem, 4.2vw, 3.3rem); margin-bottom: .4em; text-shadow: 0 2px 16px rgba(0,0,0,.6); }
-.hero .hook { text-shadow: 0 1px 10px rgba(0,0,0,.7); }
+.hero-title { font-size: clamp(2.2rem, 4.2vw, 3.3rem); margin-bottom: .35em; text-shadow: 0 2px 16px rgba(0,0,0,.7); }
+.hero .hook { text-shadow: 0 1px 10px rgba(0,0,0,.8); margin-bottom: 0; }
+.hero .series { text-shadow: 0 1px 3px rgba(0,0,0,.95), 0 0 14px rgba(0,0,0,.8); }
 .hero .button-row { margin-top: 1.25rem; }
 
 /* ---------- Layout ---------- */
@@ -362,13 +362,13 @@ main { display: block; }
   .masthead img { aspect-ratio: 16 / 10; }
   .topbar { justify-content: center; padding-top: .6rem; }
   .topbar .nav ul { justify-content: center; }
-  .hero { display: block; min-height: 0; }
-  .hero-bg { position: static; height: auto; aspect-ratio: 16 / 9; object-position: 88% center; }
-  .hero::before { display: none; }
-  .hero-inner { grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1.25rem; padding: 1.5rem 1rem 1rem; align-items: start; }
-  .hero-title { font-size: 1.9rem; }
-  .hero .hook { font-size: 1.1rem; }
-  .hero .button-row { grid-column: 1 / -1; }
+  .hero-bg, .hero::before { height: auto; aspect-ratio: 16 / 9; }
+  .hero-bg { object-position: 88% center; }
+  .hero-inner { grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1rem; margin-top: -4.5rem; padding: 0 1rem 1rem; align-items: start; }
+  .hero-copy { padding-top: 5rem; }
+  .hero .series { font-size: .95rem; }
+  .hero-title { font-size: 1.75rem; }
+  .hero .hook { font-size: 1.05rem; }
   .masthead-title { position: static; padding: .75rem 1rem 1.25rem; background: none; }
   .nav ul { gap: 0 1.1rem; }
   .nav a { font-size: 1rem; padding: .65rem 0; }
