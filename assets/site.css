@@ -299,6 +299,10 @@ main { display: block; }
 }
 .sheet img { border-radius: 3px; box-shadow: 0 0 0 1px rgba(238,227,206,.1); }
 .sheet figcaption { margin-top: .75rem; font-size: .95rem; color: var(--dust); text-align: center; }
+.sheet figcaption strong { color: var(--bone); font-family: var(--display); font-weight: 600; }
+.sheet + .sheet { margin-top: 3.5rem; }
+.sheet-wide { max-width: var(--wide); }
+.cast-head { margin: 3.5rem 0 1.25rem; padding-bottom: .5rem; border-bottom: 1px solid var(--sky-line); }
 
 .coming-list { list-style: none; padding: 0; margin: 1rem 0 0; }
 .coming-list li { padding: .5rem 0; border-bottom: 1px solid var(--sky-line); color: var(--dust); }
