@@ -302,6 +302,16 @@ main { display: block; }
 .sheet figcaption strong { color: var(--bone); font-family: var(--display); font-weight: 600; }
 .sheet + .sheet { margin-top: 3.5rem; }
 .sheet-wide { max-width: var(--wide); }
+.author-note {
+  margin: 1.5rem 0 3rem;
+  padding: 1.75rem 2rem;
+  border-left: 3px solid var(--amber);
+  background: rgba(20,41,62,.55);
+  font-style: italic;
+}
+.author-note h2 { font-style: normal; font-size: 1.5rem; color: var(--amber); margin-top: 0; }
+.author-note p:last-child { margin-bottom: 0; }
+.gallery-head { margin-top: 1rem; margin-bottom: .25rem; }
 .cast-head { margin: 3.5rem 0 1.25rem; padding-bottom: .5rem; border-bottom: 1px solid var(--sky-line); }
 
 .coming-list { list-style: none; padding: 0; margin: 1rem 0 0; }
