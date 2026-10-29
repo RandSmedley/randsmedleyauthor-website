@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=6">
+<link rel="stylesheet" href="assets/site.css?v=7">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -32,7 +32,47 @@
     <div class="prose">
       <h1>Contact</h1>
       <p class="lede">Questions about the books, the history, or the saga? Rand reads every message.</p>
-      <p class="note">The contact form is being set up and will be here shortly.</p>
+      <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="9aa9f6c7-471a-4ab7-be2f-09d761078be5">
+        <input type="hidden" name="subject" value="New message from randsmedleyauthor.com">
+        <input type="hidden" name="from_name" value="Rand Smedley author website">
+        <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label for="cf-name">Your name</label>
+        <input id="cf-name" type="text" name="name" autocomplete="name" required>
+        <label for="cf-email">Your email</label>
+        <input id="cf-email" type="email" name="email" autocomplete="email" required>
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="7" required></textarea>
+        <button class="button" type="submit">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="small muted">Your email address is used only to reply to you. It is never shared or added to a mailing list.</p>
+      <script>
+      (function () {
+        var form = document.getElementById('contact-form');
+        var status = document.getElementById('form-status');
+        var btn = form.querySelector('button[type=submit]');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          btn.disabled = true; btn.textContent = 'Sending…';
+          status.className = 'form-status'; status.textContent = '';
+          fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              if (data.success) {
+                form.reset();
+                status.className = 'form-status ok';
+                status.textContent = 'Thanks! Your message is on its way. Rand will write back soon.';
+              } else { throw new Error(data.message || 'Send failed'); }
+            })
+            .catch(function () {
+              status.className = 'form-status err';
+              status.textContent = 'Your message didn’t go through. Please try again in a moment, or email rand@randsmedleyauthor.com.';
+            })
+            .finally(function () { btn.disabled = false; btn.textContent = 'Send message'; });
+        });
+      })();
+      </script>
     </div>
   </section>
 </main>

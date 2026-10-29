@@ -322,6 +322,21 @@ main { display: block; }
 .coming-list li strong { color: var(--bone); font-family: var(--display); font-weight: 600; }
 
 /* History page */
+.contact-form { display: grid; gap: .4rem; margin: 2rem 0 1rem; }
+.contact-form label { font-family: var(--display); font-weight: 600; margin-top: .75rem; }
+.contact-form input, .contact-form textarea {
+  font: inherit; font-size: 1.05rem; color: var(--bone);
+  background: rgba(12,26,41,.7); border: 1px solid var(--sky-line); border-radius: 3px;
+  padding: .7rem .85rem; width: 100%;
+}
+.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--holo); outline-offset: 1px; border-color: transparent; }
+.contact-form textarea { resize: vertical; }
+.contact-form .button { justify-self: start; margin-top: 1.25rem; cursor: pointer; }
+.contact-form .button:disabled { opacity: .6; cursor: wait; }
+.botcheck { display: none; }
+.form-status { margin: .5rem 0 0; min-height: 1.5em; }
+.form-status.ok { color: var(--holo); }
+.form-status.err { color: var(--amber); }
 .note {
   border: 1px solid var(--sky-line);
   border-left: 3px solid var(--holo);
