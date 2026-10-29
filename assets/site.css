@@ -264,6 +264,9 @@ main { display: block; }
   background: linear-gradient(90deg, transparent, rgba(180,83,44,.16), transparent);
 }
 .next p { margin: 0; }
+.next-inner { display: flex; align-items: center; justify-content: center; gap: 2rem; max-width: var(--wide); margin: 0 auto; text-align: left; }
+.next-cover { width: 9.5rem; border-radius: 2px; box-shadow: 0 20px 40px -14px rgba(0,0,0,.8); }
+@media (max-width: 560px) { .next-inner { flex-direction: column; text-align: center; gap: 1.25rem; } }
 .next .when { font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 3.5vw, 2rem); }
 
 /* Stories: two covers, different calls to action */
