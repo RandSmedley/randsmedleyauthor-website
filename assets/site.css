@@ -267,7 +267,9 @@ main { display: block; }
 .next-inner { display: flex; align-items: center; justify-content: center; gap: 2rem; max-width: var(--wide); margin: 0 auto; text-align: left; }
 .next-cover { width: 9.5rem; border-radius: 2px; box-shadow: 0 20px 40px -14px rgba(0,0,0,.8); }
 @media (max-width: 560px) { .next-inner { flex-direction: column; text-align: center; gap: 1.25rem; } }
-.next-cover-link { display: block; cursor: zoom-in; border-radius: 2px; }
+.next-cover-link, .hero-cover-link { display: block; cursor: zoom-in; border-radius: 3px; }
+.hero-cover { transition: transform .2s ease; }
+.hero-cover-link:hover .hero-cover { transform: scale(1.03); }
 .next-cover-link:hover .next-cover { transform: scale(1.03); }
 .next-cover { transition: transform .2s ease; }
 .lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(6,13,21,.97); display: grid; place-items: center; padding: 1.5rem; cursor: zoom-out; }
