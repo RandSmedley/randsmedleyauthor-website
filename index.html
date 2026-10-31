@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=7">
+<link rel="stylesheet" href="assets/site.css?v=8">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -57,7 +57,7 @@
 
   <section class="next" aria-label="Next in the series">
     <div class="next-inner">
-      <img class="next-cover" src="assets/img/geronimo-maneuver-cover.jpg" alt="Cover of The Geronimo Maneuver, Book Two of the Geronimo Saga, by Rand Smedley" width="600" height="958" loading="lazy">
+      <a class="zoom next-cover-link" href="assets/img/full/geronimo-maneuver-cover-large.jpg" aria-label="View the cover of The Geronimo Maneuver full size"><img class="next-cover" src="assets/img/geronimo-maneuver-cover.jpg" alt="Cover of The Geronimo Maneuver, Book Two of the Geronimo Saga, by Rand Smedley" width="600" height="958" loading="lazy"></a>
       <div>
         <p class="series">Book Two of the Geronimo Saga</p>
         <p class="when">The Geronimo Maneuver</p>
@@ -114,5 +114,26 @@
 <footer class="footer">
   <p>© 2026 Rand Smedley &nbsp;·&nbsp; Published by Spotted Panther Press</p>
 </footer>
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <img alt="">
+</div>
+<script>
+(function () {
+  var box = document.getElementById('lightbox'), img = box.querySelector('img'), last;
+  function close() { box.hidden = true; img.removeAttribute('src'); document.body.classList.remove('lb-open'); if (last) last.focus(); }
+  document.querySelectorAll('a.zoom').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault(); last = a;
+      img.src = a.getAttribute('href');
+      var inner = a.querySelector('img'); img.alt = inner ? inner.alt : '';
+      box.hidden = false; document.body.classList.add('lb-open');
+      box.querySelector('.lightbox-close').focus();
+    });
+  });
+  box.addEventListener('click', function (e) { if (e.target !== img) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) close(); });
+})();
+</script>
 </body>
 </html>
